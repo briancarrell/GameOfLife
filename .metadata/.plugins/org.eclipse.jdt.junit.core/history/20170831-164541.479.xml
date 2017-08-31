@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="AdvanceBooleanTest" project="GameOfLife" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="AdvanceBooleanTest" time="0.129">
-    <testcase name="deadAndStaysDeadBoolTest" classname="AdvanceBooleanTest" time="0.128"/>
-    <testcase name="aliveAndDiesBoolTest" classname="AdvanceBooleanTest" time="0.0"/>
-    <testcase name="aliveAndStaysAliveBoolTest" classname="AdvanceBooleanTest" time="0.001"/>
-    <testcase name="deadAndBecomesAliveBoolTest" classname="AdvanceBooleanTest" time="0.0"/>
-  </testsuite>
-</testrun>

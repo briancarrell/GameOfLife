@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ResetTest" project="GameOfLife" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="ResetTest" time="0.135">
-    <testcase name="resetColorTest" classname="ResetTest" time="0.134"/>
-    <testcase name="resetPositionTest" classname="ResetTest" time="0.0"/>
-    <testcase name="resetAliveTest" classname="ResetTest" time="0.0"/>
-    <testcase name="resetNumNeighborsTest" classname="ResetTest" time="0.001"/>
-  </testsuite>
-</testrun>
