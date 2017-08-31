@@ -1,0 +1,56 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/*
+ * Brian Carrell
+ * CSE 201
+ * April 4, 2017
+ */
+
+public class UnitTests {
+
+	/*
+	 * Tests that the nextGeneration method returns correct results
+	 */
+	@Test
+	public void TestNextGeneration() {
+		assertEquals(true, Cell.nextGeneration())
+	}
+	
+	/*
+	 * Tests that the method returns true if str contains c
+	 * at multiple locations
+	 */
+	@Test
+	public void TestContains() {
+		assertEquals(0, StringUtilities.indexOf("AB", 'A'));
+		assertEquals(1, StringUtilities.indexOf("AB", 'B'));
+	}
+	
+	/*
+	 * Tests that the method returns true if str does not contain c
+	 */
+	@Test
+	public void TestNotContains() {
+		assertEquals(-1, StringUtilities.indexOf("AB", 'C'));
+	}
+	
+	/*
+	 * Tests that the method returns true if str is an empty string
+	 */
+	@Test
+	public void TestEmptyString() {
+		assertEquals(-1, StringUtilities.indexOf("", 'A'));
+	}
+	
+	/*
+	 * Tests that the method returns true if str is null
+	 */
+	@Test(expected=NullPointerException.class)
+	public void TestNullInputs() {
+		StringUtilities.indexOf(null, 'A');
+		fail("Method fails");
+	}
+	
+}
