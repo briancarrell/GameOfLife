@@ -1,0 +1,145 @@
+import static org.junit.Assert.*;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+
+import org.junit.Test;
+
+public class GOLFrameTest {
+
+	// Methods being tested
+	
+	/*
+	 * Checks the number of neighboring cells that need to be updated
+	 * x and y represent the location of the cell being changed
+	 * width and height represent the dimensions of the grid
+	 */
+	private int updateNumNeighbors(int x, int y, int width, int height) {
+		int numNeighbors=0;
+		for (int xPos=x-1; xPos<=x+1; xPos++) {
+			for (int yPos=y-1; yPos<=y+1; yPos++) {
+				if (xPos>=0 && xPos<width && yPos>=0 && yPos<height) {
+					if (xPos!=x || yPos!=y) {
+						numNeighbors++;
+					}
+				}
+			}
+		}
+		return numNeighbors;
+		
+	}
+	
+	/*
+	 * Tests to make sure cell n correctly changes based on cell c.
+	 * Tests to make sure JButton changes background color to new color.
+	 */
+	private boolean advanceBoolean(Cell c, Cell n) {
+		n.alive = c.nextGeneration();
+		n.color = c.color;
+		return n.alive;
+	}
+	
+	private Color advanceColor(Cell c, Cell n) {
+		n.alive = c.nextGeneration();
+		n.color = c.color;
+		return n.color;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//Tests
+	
+	/*
+	 * Tests the output of updateNumNeighbors
+	 * If the grid is null, return 0
+	 * If the grid is smaller than 1x2 or 2x1, return 1
+	 * If the cell is in the corner of the grid, return 3
+	 * If the cell is on the edge of the grid, return 5
+	 * If the cell is in the middle of the grid, return 8
+	 */
+	@Test
+	public void nullGridUpdateNeighborsTest () {
+		assertEquals(0, updateNumNeighbors(0,0,0,0));
+	}
+	@Test
+	public void smallGridUpdateNeighborsTest () {
+		assertEquals(1, updateNumNeighbors(0,0,1,2));
+	}
+	
+	@Test
+	public void cornerUpdateNeighborsTest() {
+		assertEquals(3, updateNumNeighbors(0,0,6,8));
+	}
+	
+	@Test
+	public void edgeUpdateNeighborsTest() {
+		assertEquals(5, updateNumNeighbors(1,0,6,8));
+	}
+	
+	@Test
+	public void centerUpdateNeighborsTest() {
+		assertEquals(8, updateNumNeighbors(4,4,6,8));
+	}
+	
+	
+	
+	/*
+	 * Tests output of AdvanceBoolean
+	 * If c is alive and stays alive, n is alive
+	 * If c is alive and dies, n is dead
+	 * If c is dead and becomes alive, n is alive
+	 * If c is dead and stays dead, n is dead
+	 */
+	@Test
+	public void aliveAndStaysAliveBoolTest() {
+		assertEquals(true, advanceBoolean(new Cell(true, 3), new Cell()));
+	}
+	
+	@Test
+	public void aliveAndDiesBoolTest() {
+		assertEquals(false, advanceBoolean(new Cell(true, 4), new Cell()));
+	}
+	
+	@Test
+	public void deadAndBecomesAliveBoolTest() {
+		assertEquals(true, advanceBoolean(new Cell(false, 3), new Cell()));
+	}
+	
+	@Test
+	public void deadAndStaysDeadBoolTest() {
+		assertEquals(false, advanceBoolean(new Cell(false, 1), new Cell()));
+	}
+	
+	
+	
+	/*
+	 * Tests output of AdvanceColor
+	 * If c is alive and stays alive, b is black
+	 * If c is alive and dies, b is white
+	 * If c is dead and becomes alive, b is black
+	 * If c is dead and stays dead, b is white
+	 */
+	@Test
+	public void aliveAndStaysAliveColorTest() {
+		assertEquals(Color.black, advanceColor(new Cell(true, 3), new Cell()));
+	}
+	
+	@Test
+	public void aliveAndDiesColorTest() {
+		assertEquals(Color.white, advanceColor(new Cell(true, 4), new Cell()));
+	}
+	
+	@Test
+	public void deadAndBecomesAliveColorTest() {
+		assertEquals(Color.black, advanceColor(new Cell(false, 3), new Cell()));
+	}
+	
+	@Test
+	public void deadAndStaysDeadColorTest() {
+		assertEquals(Color.white, advanceColor(new Cell(false, 1), new Cell(),));
+	}
+	
+	
+
+}

@@ -24,15 +24,6 @@ public class Cell {
 		numNeighbors = n;
 		color = Color.white;
 	}
-	
-	public Cell() {
-		position = new int[2];
-		position[0] = 0;
-		position[1] = 0;
-		alive = false;
-		numNeighbors = 0;
-		color = Color.white;
-	}
 
 	public void setAlive() {
 		alive = !alive;

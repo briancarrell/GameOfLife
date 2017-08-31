@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GOLFrameTest" project="GameOfLife" tests="13" started="13" failures="0" errors="0" ignored="0">
+  <testsuite name="GOLFrameTest" time="0.027">
+    <testcase name="aliveAndStaysAliveColorTest" classname="GOLFrameTest" time="0.025"/>
+    <testcase name="nullGridUpdateNeighborsTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="deadAndBecomesAliveColorTest" classname="GOLFrameTest" time="0.001"/>
+    <testcase name="deadAndStaysDeadColorTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="deadAndStaysDeadBoolTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="aliveAndDiesBoolTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="edgeUpdateNeighborsTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="cornerUpdateNeighborsTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="aliveAndStaysAliveBoolTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="aliveAndDiesColorTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="smallGridUpdateNeighborsTest" classname="GOLFrameTest" time="0.001"/>
+    <testcase name="centerUpdateNeighborsTest" classname="GOLFrameTest" time="0.0"/>
+    <testcase name="deadAndBecomesAliveBoolTest" classname="GOLFrameTest" time="0.0"/>
+  </testsuite>
+</testrun>
