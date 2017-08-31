@@ -1,0 +1,33 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class GOLFrameTest {
+
+	// Methods being tested
+	
+	private int updateNumNeighbors(int x, int y, int width, int height) {
+		int numNeighbors=0;
+		for (int row=0; row<=3; row++) {
+			for (int column=0; column<=y+1; column++) {
+				if (row>=0 && row<width && column>=0 && column<height) {
+					if (row!=x || column!=y) {
+						numNeighbors++;
+					}
+				}
+			}
+		}
+		return numNeighbors;
+		
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//Tests
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

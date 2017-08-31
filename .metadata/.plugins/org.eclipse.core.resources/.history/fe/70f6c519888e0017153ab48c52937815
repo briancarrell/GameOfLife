@@ -80,11 +80,11 @@ public class GOLFrame extends JFrame {
 					
 					// update adjacent cells' number of living neighbors
 					private void updateNumNeighbors() {
-						for (int xPos=x-1; xPos<=x+1; xPos++) {
-							for (int yPos=y-1; yPos<=y+1; yPos++) {
-								if (xPos>=0 && xPos<width && yPos>=0 && yPos<height) {
-									if (xPos!=x || yPos!=y) {
-										GOL[xPos][yPos].numNeighbors++;
+						for (int row=x-1; row<=x+1; row++) {
+							for (int column=y-1; column<=y+1; column++) {
+								if (row>=0 && row<width && column>=0 && column<height) {
+									if (row!=x || column!=y) {
+										GOL[row][column].numNeighbors++;
 									}
 								}
 							}

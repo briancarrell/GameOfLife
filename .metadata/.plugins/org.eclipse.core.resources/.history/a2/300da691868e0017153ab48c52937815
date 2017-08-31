@@ -1,0 +1,49 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class GOLFrameTest {
+
+	// Methods being tested
+	
+	/*
+	 * Checks the number of neighboring cells that need to be updated
+	 * x and y represent the location of the cell being changed
+	 * width and height represent the dimensions of the grid
+	 */
+	private int updateNumNeighbors(int x, int y, int width, int height) {
+		int numNeighbors=0;
+		for (int row=y-1; row<=y+1; row++) {
+			for (int column=x-1; column<=x+1; column++) {
+				if (row>=x && row<height && column>=y && column<width) {
+					if (row!=y || column!=x) {
+						numNeighbors++;
+					}
+				}
+			}
+		}
+		return numNeighbors;
+		
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//Tests
+	
+	/*
+	 * Tests the output of updateNumNeighbors
+	 * If the grid is null, return 0
+	 * If the grid is smaller than 1x2 or 2x1, return 1
+	 * If the cell is in the corner of the grid, return 3
+	 * If the cell is on the edge of the grid, return 5
+	 * If the cell is in the middle of the grid, return 8
+	 */
+	@Test
+	public void updateNumNeighborsTest() {
+		assertEquals(0, updateNumNeighbors(0,0,0,0));
+		assertEquals(1, updateNumNeighbors(0,0,1,2));
+		assertEquals(3, updateNumNeighbors(0,0,6,8));
+		assertEquals(5, updateNumNeighbors(1,0,6,8));
+	}
+
+}
