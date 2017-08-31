@@ -1,0 +1,1 @@
+# ComResource-Kata
