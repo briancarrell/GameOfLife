@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import org.junit.Test;
 
 public class CellTest {
@@ -24,15 +26,6 @@ public class CellTest {
 		return alive;
 	}
 	
-	
-	/*
-	 * Switches cell between dead and alive when clicked
-	 */
-	public boolean setAlive(boolean alive) {
-		alive = !alive;
-		return alive;
-	}
-	
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//Tests
 	
@@ -49,40 +42,6 @@ public class CellTest {
 	public void aliveAndLessThanTwoNeighbors() {
 		assertEquals(false, nextGeneration(true, 1));
 	}
-	
-	@Test
-	public void aliveAndMoreThanThreeNeighbors() {
-		assertEquals(false, nextGeneration(true, 4));
-	}
-	
-	@Test
-	public void aliveAndTwoOrThreeNeighbors() {
-		assertEquals(true, nextGeneration(true, 2));
-		assertEquals(true, nextGeneration(true, 3));
-	}
-	
-	@Test
-	public void deadAndThreeNeighbors() {
-		assertEquals(true, nextGeneration(false, 3));
-	}
-	
-	@Test
-	public void deadAndNotThreeNeighbors() {
-		assertEquals(false, nextGeneration(false, 2));
-		assertEquals(false, nextGeneration(false, 4));
-	}
 
-	
-	/*
-	 * Tests to see if setAlive switches alive
-	 * True should return false
-	 * False should return true
-	 */
-	@Test
-	public void setAliveTest() {
-		assertEquals(false, setAlive(true));
-		assertEquals(true, setAlive(false));
-	}
-	
 }
 

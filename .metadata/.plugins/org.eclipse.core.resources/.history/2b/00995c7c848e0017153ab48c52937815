@@ -79,7 +79,7 @@ public class CellTest {
 	 * False should return true
 	 */
 	@Test
-	public void setAliveTest() {
+	public void isAliveTest() {
 		assertEquals(false, setAlive(true));
 		assertEquals(true, setAlive(false));
 	}
