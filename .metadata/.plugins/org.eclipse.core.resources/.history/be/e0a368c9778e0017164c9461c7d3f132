@@ -18,21 +18,12 @@ public class Cell {
 
 	public void setAlive() {
 		alive = !alive;
-		//System.out.println("Cell ("+position[0]+", "+position[1]+")"+alive);
+		System.out.println("Cell ("+position[0]+", "+position[1]+")"+alive);
 		if (alive) {
 			color = Color.black;
 		} else {
 			color = Color.white;
 		}
-	}
-
-	public boolean nextGeneration() {
-		boolean isAlive=false;
-		if (numNeighbors == 2 || numNeighbors == 3) {
-			isAlive = true;
-		}
-		
-		return isAlive;
 	}
 	
 }
