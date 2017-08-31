@@ -1,7 +1,5 @@
 import static org.junit.Assert.*;
 
-import javax.swing.JButton;
-
 import org.junit.Test;
 
 public class GOLFrameTest {
@@ -26,14 +24,6 @@ public class GOLFrameTest {
 		}
 		return numNeighbors;
 		
-	}
-	
-	/*
-	 * Tests to make sure 
-	 */
-	private void advance(Cell c, Cell n, JButton b) {
-		n.alive = c.nextGeneration();
-		b.setBackground(n.color);
 	}
 	
 	

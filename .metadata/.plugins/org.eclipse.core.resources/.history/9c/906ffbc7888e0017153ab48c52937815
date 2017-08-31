@@ -145,8 +145,7 @@ public class GOLFrame extends JFrame {
 				for (int i=0; i<width; i++) {
 					for (int j=0; j<height; j++) {
 						GOLafter[i][j].alive = GOL[i][j].nextGeneration();
-						GOLafter[i][j].color = GOL[i][j].color;
-						boardAfter[i][j].setBackground(GOLafter[i][j].color);
+						boardAfter[i][j].setBackground(GOL[i][j].color);
 					}
 				}
 				
@@ -163,8 +162,9 @@ public class GOLFrame extends JFrame {
 			private void reset() {
 				for (int i=0; i<width; i++) {
 					for (int j=0; j<height; j++) {
-						GOL[i][j] = new Cell(i, j);
-						GOLafter[i][j] = new Cell(i, j);
+						GOL[i][j].alive = false;
+						GOL[i][j].numNeighbors = 0;
+						GOLafter[i][j].alive = false;
 						board[i][j].setBackground(Color.white);
 						boardAfter[i][j].setBackground(Color.white);
 					}

@@ -22,7 +22,7 @@ public class Cell {
 		position[1] = y;
 		alive = a;
 		numNeighbors = n;
-		color = c;
+		color = b;
 	}
 
 	public void setAlive() {

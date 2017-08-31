@@ -15,15 +15,6 @@ public class Cell {
 		numNeighbors = 0;
 		color = Color.white;
 	}
-	
-	public Cell(int x, int y, int n, boolean a, Color c) {
-		position = new int[2];
-		position[0] = x;
-		position[1] = y;
-		alive = a;
-		numNeighbors = n;
-		color = c;
-	}
 
 	public void setAlive() {
 		alive = !alive;
@@ -51,6 +42,7 @@ public class Cell {
 		} else {
 			color = Color.white;
 		}
+		System.out.println("Cell ("+position[0]+", "+position[1]+") "+alive);
 		return isAlive;
 	}
 	
