@@ -27,22 +27,11 @@ public class Cell {
 	}
 
 	public boolean nextGeneration() {
-		boolean isAlive = false;
-		if (alive) {
-			if (numNeighbors == 2 || numNeighbors == 3) {
-				isAlive = true;
-			} else {
-				isAlive = false;
-			}
-		} else if (numNeighbors==3) {
+		boolean isAlive=false;
+		if (numNeighbors == 2 || numNeighbors == 3) {
 			isAlive = true;
 		}
-		if (isAlive) {
-			color = Color.black;
-		} else {
-			color = Color.white;
-		}
-		System.out.println("Cell ("+position[0]+", "+position[1]+") "+alive);
+		
 		return isAlive;
 	}
 	

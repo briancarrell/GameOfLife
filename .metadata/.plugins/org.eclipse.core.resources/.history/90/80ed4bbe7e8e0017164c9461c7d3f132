@@ -37,7 +37,7 @@ public class GOLFrame extends JFrame {
 	public GOLFrame(int height, int width) {
 		
 		// set bounds of window and overall Panel
-		setBounds(0,0,625,400);
+		setBounds(0,0,650,400);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

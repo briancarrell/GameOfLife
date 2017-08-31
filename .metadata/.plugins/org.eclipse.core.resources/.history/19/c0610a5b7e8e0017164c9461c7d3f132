@@ -35,9 +35,11 @@ public class GOLFrame extends JFrame {
 	
 	//constructor creates frame with all panels and buttons on it
 	public GOLFrame(int height, int width) {
+		// Determines if the game has progressed at all
+		final boolean started = false;
 		
 		// set bounds of window and overall Panel
-		setBounds(0,0,625,400);
+		setBounds(0,0,700,400);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,37 +50,32 @@ public class GOLFrame extends JFrame {
         initial.setLayout(gl);
         JLabel initialTitle = new JLabel ("Initial State");
         add(initialTitle);
-		
-        // creates a cell array to store data about each cell
-        Cell[][] GOL = new Cell[width][height];
+		Cell[][] GOL = new Cell[width][height];
 		for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
 				GOL[i][j] = new Cell(i, j);
 			}
 		}
 		
-		// creates a button array to store the buttons within the panel
 		JButton[][] board = new JButton[width][height]; 
         for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
-				// Set display of button
 				JButton button = new JButton("");
+				int x = i;
+				int y = j;
 				button.setPreferredSize(new Dimension(35,35));
 				button.setBackground(Color.white);
 				button.setOpaque(true);
 				button.setBorderPainted(false);
-				
-				//set click function of button
-				int x = i;
-				int y = j;
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) { 
-						GOL[x][y].setAlive();
-						updateNumNeighbors();
-						button.setBackground(GOL[x][y].color);
-					  }
-					
-					// update adjacent cells' number of living neighbors
+						if (!started) {
+							GOL[x][y].setAlive();
+							updateNumNeighbors();
+							button.setBackground(GOL[x][y].color);
+						}
+					}
+
 					private void updateNumNeighbors() {
 						for (int row=x-1; row<=x+1; row++) {
 							for (int column=y-1; column<=y+1; column++) {
@@ -92,24 +89,17 @@ public class GOLFrame extends JFrame {
 						
 					}
 				});
-				
-				//add button to button array and initial grid
 				board[i][j] = button;
 				initial.add(button);
 			}
         }
         
-        //add initial grid to frame
 		add(initial);
 		
-		
-		// JPanel for the new state grid
 		JPanel after = new JPanel();
         after.setLayout(gl);
         JLabel afterTitle = new JLabel ("New State");
         add(afterTitle);
-        
-        // create an array of cells
 		Cell[][] GOLafter = new Cell[width][height];
 		for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
@@ -117,7 +107,6 @@ public class GOLFrame extends JFrame {
 			}
 		}
 		
-		//create an array of buttons to display
 		JButton[][] boardAfter = new JButton[width][height]; 
         for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
@@ -131,10 +120,8 @@ public class GOLFrame extends JFrame {
 			}
         }
         
-        //add after grid to frame
 		add(after);
 		
-		// create button to advance the game from the initial state to the new state
 		JButton advance = new JButton("Advance States");
 		advance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -142,6 +129,7 @@ public class GOLFrame extends JFrame {
 			}
 
 			private void advance() {
+				started = true;
 				for (int i=0; i<width; i++) {
 					for (int j=0; j<height; j++) {
 						GOLafter[i][j].alive = GOL[i][j].nextGeneration();
@@ -152,7 +140,7 @@ public class GOLFrame extends JFrame {
 			}
 		});
 		
-		// create button to reset both grids to empty
+		
 		JButton reset = new JButton("Reset");
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
@@ -173,15 +161,8 @@ public class GOLFrame extends JFrame {
 			}
 		});
 		
-		//add advance and reset buttons to frame
 		add(advance);
 		add(reset);
-		
-		// Create and add instructions for game
-		JLabel instructions1 = new JLabel ("Click any square in the initial state grid to change its alive state.");
-		JLabel instructions2 = new JLabel ("Advance displays the next state grid. Reset clears both grids.");
-        add(instructions1);
-        add(instructions2);
 		
 		
 	}

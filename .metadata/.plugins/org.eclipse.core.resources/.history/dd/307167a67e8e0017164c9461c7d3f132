@@ -37,7 +37,7 @@ public class GOLFrame extends JFrame {
 	public GOLFrame(int height, int width) {
 		
 		// set bounds of window and overall Panel
-		setBounds(0,0,625,400);
+		setBounds(0,0,700,400);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -178,10 +178,12 @@ public class GOLFrame extends JFrame {
 		add(reset);
 		
 		// Create and add instructions for game
-		JLabel instructions1 = new JLabel ("Click any square in the initial state grid to change its alive state.");
-		JLabel instructions2 = new JLabel ("Advance displays the next state grid. Reset clears both grids.");
+		JLabel instructions1 = new JLabel ("Instructions: ");
+		JLabel instructions2 = new JLabel ("Click any square in the initial state grid to change its alive state.");
+		JLabel instructions3 = new JLabel ("Advance displays the next state grid. Reset clears both grids.");
         add(instructions1);
         add(instructions2);
+        add(instructions3);
 		
 		
 	}
