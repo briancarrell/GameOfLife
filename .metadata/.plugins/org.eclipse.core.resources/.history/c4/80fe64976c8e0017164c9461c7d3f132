@@ -1,0 +1,68 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class GOLFrame extends JFrame {
+
+	private JPanel contentPane;
+
+	public GOLFrame(int width, int height) {
+		setBounds(0,0,650,650);
+		contentPane = new JPanel();
+		setContentPane(contentPane);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel initial = new JPanel ();
+        GridLayout gl =new GridLayout(6,8);
+        initial.setLayout(gl);
+		
+		Cell[][] GOL = new Cell[width][height];
+		for (int i=0; i<width; i++) {
+			for (int j=0; j<height; j++) {
+				GOL[i][j] = new Cell(i, j);
+				JButton button = new JButton("");
+				int x = i;
+				int y = j;
+				button.setPreferredSize(new Dimension(30,30));;
+				button.setBackground(Color.white);
+				button.setOpaque(true);
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) { 
+						GOL[x][y].changeStatus();
+					  }
+				});
+				initial.add (button);
+			}
+		}
+		add(initial);
+		
+	}
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GOLFrame frame = new GOLFrame(6,8);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		
+	}
+
+}

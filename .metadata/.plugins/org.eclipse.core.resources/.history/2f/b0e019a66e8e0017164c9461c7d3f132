@@ -1,0 +1,24 @@
+
+public class Cell {
+
+	boolean alive;
+	int numNeighbors;
+	int[] position;
+	
+	public Cell(int x, int y) {
+		position = new int[2];
+		position[0] = x;
+		position[1] = y;
+		alive = false;
+		numNeighbors = 0;
+	}
+
+	public void changeStatus() {
+		if (alive) {
+			alive = false;
+		} else {
+			alive = true;
+		}
+	}
+	
+}

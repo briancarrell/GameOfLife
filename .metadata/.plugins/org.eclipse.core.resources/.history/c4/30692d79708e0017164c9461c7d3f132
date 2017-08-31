@@ -1,0 +1,29 @@
+
+public class Cell {
+
+	boolean alive;
+	int numNeighbors;
+	int[] position;
+	
+	public Cell(int x, int y) {
+		position = new int[2];
+		position[0] = x;
+		position[1] = y;
+		alive = false;
+		numNeighbors = 0;
+	}
+
+	public void setAlive() {
+		if (alive = false) {
+			alive = true;
+		} else if (alive = true) {
+			alive = false;
+		}
+		System.out.println("Cell ("+position[0]+", "+position[1]+")"+alive);
+	}
+
+	public boolean getAlive(boolean b) {
+		return alive;
+	}
+	
+}

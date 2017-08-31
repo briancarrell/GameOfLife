@@ -1,7 +1,29 @@
+import java.awt.Color;
 
 public class Cell {
 
 	boolean alive;
 	int numNeighbors;
+	int[] position;
+	Color color;
+	
+	public Cell(int x, int y) {
+		position = new int[2];
+		position[0] = x;
+		position[1] = y;
+		alive = false;
+		numNeighbors = 0;
+		color = Color.white;
+	}
+
+	public void setAlive() {
+		alive = !alive;
+		System.out.println("Cell ("+position[0]+", "+position[1]+")"+alive);
+		if (alive) {
+			color = Color.black;
+		} else {
+			color = Color.white;
+		}
+	}
 	
 }
